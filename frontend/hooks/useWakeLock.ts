@@ -1,62 +1,34 @@
-import { useRef, useCallback, useEffect } from "react";
+import { useRef, useCallback } from "react";
 
 export function useWakeLock() {
   const wakeLockRef = useRef<WakeLockSentinel | null>(null);
-  const isActiveRef = useRef(false);
 
   const requestWakeLock = useCallback(async () => {
     if (!("wakeLock" in navigator)) {
       return;
     }
 
-    if (document.visibilityState !== "visible") {
-      return;
-    }
-
     try {
-      if (wakeLockRef.current !== null) {
+      if (wakeLockRef.current !== null && !wakeLockRef.current.released) {
         return;
       }
 
       wakeLockRef.current = await navigator.wakeLock.request("screen");
-
-      wakeLockRef.current.addEventListener("release", () => {
-        wakeLockRef.current = null;
-        if (isActiveRef.current && document.visibilityState === "visible") {
-          setTimeout(() => requestWakeLock(), 100);
-        }
-      });
     } catch (err) {
-      wakeLockRef.current = null;
+      console.error("Wake lock error:", err);
     }
   }, []);
 
-  const releaseWakeLock = useCallback(() => {
-    isActiveRef.current = false;
-    if (wakeLockRef.current) {
-      wakeLockRef.current.release().catch(() => {});
-      wakeLockRef.current = null;
-    }
-  }, []);
-
-  const activateWakeLock = useCallback(async () => {
-    isActiveRef.current = true;
-    await requestWakeLock();
-  }, [requestWakeLock]);
-
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === "visible" && isActiveRef.current) {
-        requestWakeLock();
+  const releaseWakeLock = useCallback(async () => {
+    if (wakeLockRef.current && !wakeLockRef.current.released) {
+      try {
+        await wakeLockRef.current.release();
+      } catch (err) {
+        console.error("Wake lock release error:", err);
       }
-    };
+      wakeLockRef.current = null;
+    }
+  }, []);
 
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-    return () => {
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-      releaseWakeLock();
-    };
-  }, [requestWakeLock, releaseWakeLock]);
-
-  return { requestWakeLock: activateWakeLock, releaseWakeLock };
+  return { requestWakeLock, releaseWakeLock };
 }

@@ -72,8 +72,8 @@ export default function JapaneseWalking() {
     } else {
       releaseWakeLock();
     }
-    return () => releaseWakeLock();
-  }, [isRunning]);
+    return () => { releaseWakeLock(); };
+  }, [isRunning, requestWakeLock, releaseWakeLock]);
 
   const handleComplete = async () => {
     releaseWakeLock();

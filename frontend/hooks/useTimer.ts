@@ -1,9 +1,14 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 export function useTimer(initialTime: number, onComplete: () => void) {
   const [timeLeft, setTimeLeft] = useState(initialTime);
   const [isRunning, setIsRunning] = useState(false);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<number | null>(null);
+  const onCompleteRef = useRef(onComplete);
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useEffect(() => {
     setTimeLeft(initialTime);
@@ -11,33 +16,35 @@ export function useTimer(initialTime: number, onComplete: () => void) {
 
   useEffect(() => {
     if (isRunning && timeLeft > 0) {
-      intervalRef.current = setInterval(() => {
+      intervalRef.current = window.setInterval(() => {
         setTimeLeft((prev) => {
           if (prev <= 1) {
             setIsRunning(false);
-            onComplete();
+            onCompleteRef.current();
             return 0;
           }
           return prev - 1;
         });
       }, 1000);
-    } else if (intervalRef.current) {
+    } else if (intervalRef.current !== null) {
       clearInterval(intervalRef.current);
+      intervalRef.current = null;
     }
 
     return () => {
-      if (intervalRef.current) {
+      if (intervalRef.current !== null) {
         clearInterval(intervalRef.current);
+        intervalRef.current = null;
       }
     };
-  }, [isRunning, timeLeft, onComplete]);
+  }, [isRunning, timeLeft]);
 
-  const start = () => setIsRunning(true);
-  const pause = () => setIsRunning(false);
-  const reset = () => {
+  const start = useCallback(() => setIsRunning(true), []);
+  const pause = useCallback(() => setIsRunning(false), []);
+  const reset = useCallback(() => {
     setIsRunning(false);
     setTimeLeft(initialTime);
-  };
+  }, [initialTime]);
 
   return { timeLeft, isRunning, start, pause, reset };
 }

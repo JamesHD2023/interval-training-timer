@@ -115,8 +115,8 @@ export default function CustomTimer() {
     } else {
       releaseWakeLock();
     }
-    return () => releaseWakeLock();
-  }, [isRunning]);
+    return () => { releaseWakeLock(); };
+  }, [isRunning, requestWakeLock, releaseWakeLock]);
 
   const handleComplete = async () => {
     releaseWakeLock();

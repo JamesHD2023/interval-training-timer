@@ -70,8 +70,8 @@ export default function Norwegian4x4() {
     } else {
       releaseWakeLock();
     }
-    return () => releaseWakeLock();
-  }, [isRunning]);
+    return () => { releaseWakeLock(); };
+  }, [isRunning, requestWakeLock, releaseWakeLock]);
 
   const handleComplete = async () => {
     releaseWakeLock();
