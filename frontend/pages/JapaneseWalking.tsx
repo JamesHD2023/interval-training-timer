@@ -64,7 +64,7 @@ export default function JapaneseWalking() {
         playDoubleBeep();
       }
     }
-  }, [currentIntervalIndex, isRunning]);
+  }, [currentIntervalIndex, isRunning, speak, sendNotification, playBeep, playDoubleBeep, currentInterval.name, currentInterval.message]);
 
   useEffect(() => {
     if (isRunning) {
