@@ -54,13 +54,15 @@ export default function Norwegian4x4() {
 
   useEffect(() => {
     if (isRunning) {
-      speak(currentInterval.message);
-      sendNotification(currentInterval.name, currentInterval.message);
-      if (currentInterval.name === "High Intensity") {
-        playBeep();
-      } else if (currentInterval.name === "Active Recovery") {
-        playDoubleBeep();
-      }
+      setTimeout(() => {
+        speak(currentInterval.message);
+        sendNotification(currentInterval.name, currentInterval.message);
+        if (currentInterval.name === "High Intensity") {
+          playBeep();
+        } else if (currentInterval.name === "Active Recovery") {
+          playDoubleBeep();
+        }
+      }, 100);
     }
   }, [currentIntervalIndex, isRunning, speak, sendNotification, playBeep, playDoubleBeep, currentInterval.name, currentInterval.message]);
 

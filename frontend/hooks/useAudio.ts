@@ -28,24 +28,28 @@ export function useAudio() {
   }, []);
 
   const playBeep = useCallback(() => {
-    const ctx = getAudioContext();
-    const oscillator = ctx.createOscillator();
-    const gainNode = ctx.createGain();
+    try {
+      const ctx = getAudioContext();
+      const oscillator = ctx.createOscillator();
+      const gainNode = ctx.createGain();
 
-    oscillator.connect(gainNode);
-    gainNode.connect(ctx.destination);
+      oscillator.connect(gainNode);
+      gainNode.connect(ctx.destination);
 
-    oscillator.frequency.value = 880;
-    oscillator.type = "square";
+      oscillator.frequency.value = 880;
+      oscillator.type = "square";
 
-    gainNode.gain.setValueAtTime(1.0, ctx.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
+      gainNode.gain.setValueAtTime(1.0, ctx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
 
-    oscillator.start(ctx.currentTime);
-    oscillator.stop(ctx.currentTime + 0.5);
+      oscillator.start(ctx.currentTime);
+      oscillator.stop(ctx.currentTime + 0.5);
 
-    if ("vibrate" in navigator) {
-      navigator.vibrate(200);
+      if ("vibrate" in navigator) {
+        navigator.vibrate(200);
+      }
+    } catch (err) {
+      console.error("Audio error:", err);
     }
   }, []);
 
@@ -85,14 +89,18 @@ export function useAudio() {
   }, []);
 
   const speak = useCallback((text: string) => {
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.rate = 0.95;
-      utterance.pitch = 1.0;
-      utterance.volume = 1.0;
-      utterance.lang = "en-US";
-      window.speechSynthesis.speak(utterance);
+    try {
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.volume = 1.0;
+        utterance.lang = "en-US";
+        window.speechSynthesis.speak(utterance);
+      }
+    } catch (err) {
+      console.error("Speech error:", err);
     }
   }, []);
 
