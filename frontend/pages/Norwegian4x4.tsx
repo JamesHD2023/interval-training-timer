@@ -17,15 +17,15 @@ interface Interval {
 }
 
 const intervals: Interval[] = [
-  { name: "Warm-up", duration: 240, message: "Warm-up - moderate pace" },
-  { name: "High Intensity", duration: 240, message: "High intensity - push hard!" },
-  { name: "Active Recovery", duration: 240, message: "Active recovery" },
-  { name: "High Intensity", duration: 240, message: "High intensity - push hard!" },
-  { name: "Active Recovery", duration: 240, message: "Active recovery" },
-  { name: "High Intensity", duration: 240, message: "High intensity - push hard!" },
-  { name: "Active Recovery", duration: 240, message: "Active recovery" },
-  { name: "High Intensity", duration: 240, message: "High intensity - push hard!" },
-  { name: "Cool-down", duration: 240, message: "Cool-down begins" },
+  { name: "Warm-up", duration: 600, message: "Warm-up - light intensity with dynamic stretches" },
+  { name: "High Intensity 1", duration: 240, message: "High intensity - 85 to 95% max heart rate" },
+  { name: "Recovery 1", duration: 180, message: "Light recovery - 60 to 70% max heart rate" },
+  { name: "High Intensity 2", duration: 240, message: "High intensity - 85 to 95% max heart rate" },
+  { name: "Recovery 2", duration: 180, message: "Light recovery - 60 to 70% max heart rate" },
+  { name: "High Intensity 3", duration: 240, message: "High intensity - 85 to 95% max heart rate" },
+  { name: "Recovery 3", duration: 180, message: "Light recovery - 60 to 70% max heart rate" },
+  { name: "High Intensity 4", duration: 240, message: "Final high intensity - 85 to 95% max heart rate" },
+  { name: "Cool-down", duration: 300, message: "Cool-down - slowly bring heart rate down" },
 ];
 
 export default function Norwegian4x4() {
@@ -118,15 +118,15 @@ export default function Norwegian4x4() {
 
         <InfoPanel
           title="About Norwegian 4×4"
-          description="Research-proven HIIT protocol for maximum cardiovascular improvement"
+          description="Gold standard interval protocol with four 4-minute high-intensity intervals at 85-95% max heart rate, separated by 3-minute recoveries. Highly effective for improving VO₂ max, cardiovascular health, and metabolic factors."
           howToPerform={[
-            "Use running, cycling, rowing, or other cardio equipment",
-            "High intensity = 85-95% max heart rate (very challenging, can barely speak)",
-            "Recovery = 60-70% max heart rate (moderate, can hold conversation)",
-            "Focus on sustained intensity, not sprinting",
+            "High intensity: 85-95% max heart rate - speaking full sentences is difficult",
+            "Recovery: 60-70% max heart rate - light activity like brisk walking or light pedaling",
+            "Can be performed running, cycling, rowing, or on cardio equipment",
+            "Heart rate responds faster as you become fitter",
           ]}
-          benefits={["Significant VO2 max gains", "Heart health", "Endurance"]}
-          frequency="2 times per week with 48+ hours rest"
+          benefits={["Significant VO₂ max improvement", "Enhanced cardiovascular fitness", "Improved heart function", "Better metabolic health"]}
+          frequency="2-3 times per week with at least one rest day between sessions"
         />
 
         <TimerDisplay
