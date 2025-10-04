@@ -12,6 +12,10 @@ export function useTimer(initialTime: number, onComplete: () => void) {
 
   useEffect(() => {
     setTimeLeft(initialTime);
+    if (intervalRef.current !== null) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
   }, [initialTime]);
 
   useEffect(() => {
