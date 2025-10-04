@@ -11,6 +11,7 @@ import PresetManager from "@/components/PresetManager";
 import { useTimer } from "@/hooks/useTimer";
 import { useAudio } from "@/hooks/useAudio";
 import { useWakeLock } from "@/hooks/useWakeLock";
+import backend from "~backend/client";
 
 interface CustomInterval {
   name: string;
@@ -20,7 +21,7 @@ interface CustomInterval {
 
 export default function CustomTimer() {
   const navigate = useNavigate();
-  const { playBeep, playDoubleBeep, speak } = useAudio();
+  const { playBeep, playDoubleBeep, playCompletionSound, speak } = useAudio();
   const { requestWakeLock, releaseWakeLock } = useWakeLock();
 
   const [showConfig, setShowConfig] = useState(true);
@@ -116,12 +117,12 @@ export default function CustomTimer() {
 
   const handleComplete = async () => {
     releaseWakeLock();
-    speak("Workout complete!");
+    playCompletionSound();
+    speak("Workout complete! You did it!");
     try {
-      await fetch("/api/timer/sessions", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ timerType: "Custom", duration: totalDuration }),
+      await backend.timer.createSession({
+        timerType: "Custom",
+        duration: totalDuration,
       });
     } catch (err) {
       console.error("Failed to save session:", err);

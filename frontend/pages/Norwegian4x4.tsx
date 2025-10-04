@@ -7,6 +7,7 @@ import InfoPanel from "@/components/InfoPanel";
 import { useTimer } from "@/hooks/useTimer";
 import { useAudio } from "@/hooks/useAudio";
 import { useWakeLock } from "@/hooks/useWakeLock";
+import backend from "~backend/client";
 
 interface Interval {
   name: string;
@@ -28,7 +29,7 @@ const intervals: Interval[] = [
 
 export default function Norwegian4x4() {
   const navigate = useNavigate();
-  const { playBeep, playDoubleBeep, speak } = useAudio();
+  const { playBeep, playDoubleBeep, playCompletionSound, speak } = useAudio();
   const { requestWakeLock, releaseWakeLock } = useWakeLock();
   const [currentIntervalIndex, setCurrentIntervalIndex] = useState(0);
 
@@ -71,12 +72,12 @@ export default function Norwegian4x4() {
 
   const handleComplete = async () => {
     releaseWakeLock();
-    speak("Workout complete!");
+    playCompletionSound();
+    speak("Workout complete! Excellent effort!");
     try {
-      await fetch("/api/timer/sessions", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ timerType: "Norwegian 4×4", duration: totalDuration }),
+      await backend.timer.createSession({
+        timerType: "Norwegian 4×4",
+        duration: totalDuration,
       });
     } catch (err) {
       console.error("Failed to save session:", err);
