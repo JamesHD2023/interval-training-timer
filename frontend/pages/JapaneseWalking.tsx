@@ -18,15 +18,16 @@ interface Interval {
 
 const intervals: Interval[] = [
   { name: "Warm-up", duration: 180, message: "Begin warm-up walk" },
-  { name: "Fast Pace", duration: 180, message: "Fast pace - go!" },
-  { name: "Recovery", duration: 180, message: "Recovery pace" },
-  { name: "Fast Pace", duration: 180, message: "Fast pace - go!" },
-  { name: "Recovery", duration: 180, message: "Recovery pace" },
-  { name: "Fast Pace", duration: 180, message: "Fast pace - go!" },
-  { name: "Recovery", duration: 180, message: "Recovery pace" },
-  { name: "Fast Pace", duration: 180, message: "Fast pace - go!" },
-  { name: "Recovery", duration: 180, message: "Recovery pace" },
-  { name: "Fast Pace", duration: 180, message: "Fast pace - go!" },
+  { name: "Brisk Walk", duration: 180, message: "Brisk pace - 70 to 85% max heart rate" },
+  { name: "Leisurely Walk", duration: 180, message: "Leisurely pace - recover" },
+  { name: "Brisk Walk", duration: 180, message: "Brisk pace - 70 to 85% max heart rate" },
+  { name: "Leisurely Walk", duration: 180, message: "Leisurely pace - recover" },
+  { name: "Brisk Walk", duration: 180, message: "Brisk pace - 70 to 85% max heart rate" },
+  { name: "Leisurely Walk", duration: 180, message: "Leisurely pace - recover" },
+  { name: "Brisk Walk", duration: 180, message: "Brisk pace - 70 to 85% max heart rate" },
+  { name: "Leisurely Walk", duration: 180, message: "Leisurely pace - recover" },
+  { name: "Brisk Walk", duration: 180, message: "Brisk pace - 70 to 85% max heart rate" },
+  { name: "Leisurely Walk", duration: 180, message: "Leisurely pace - recover" },
   { name: "Cool-down", duration: 180, message: "Final cool-down" },
 ];
 
@@ -120,15 +121,15 @@ export default function JapaneseWalking() {
 
         <InfoPanel
           title="About Japanese Walking"
-          description="High-intensity interval walking shown to improve cardiovascular fitness and metabolic health"
+          description="Japanese Interval Walking Training (IWT) alternates between 3 minutes of brisk and leisurely walking for 30 minutes total to improve cardiovascular health, metabolism, posture, and overall fitness."
           howToPerform={[
-            "Maintain proper upright posture",
-            "Fast intervals should be challenging but sustainable (7-8 out of 10 effort)",
-            "Recovery pace should allow breathing to normalize",
-            "Can be done on treadmill or outdoors",
+            "Brisk intervals: 70-85% max heart rate - challenging but can still speak",
+            "Leisurely intervals: slower pace to allow heart rate recovery",
+            "Maintain good posture with back straight and body aligned",
+            "Use walking time for mindfulness and connecting with surroundings",
           ]}
-          benefits={["Improved VO2 max", "Fat burning", "Time-efficient"]}
-          frequency="2-3 times per week"
+          benefits={["Improved cardiovascular health", "Enhanced metabolism", "Better posture", "Mental health benefits"]}
+          frequency="3-4 times per week"
         />
 
         <TimerDisplay
