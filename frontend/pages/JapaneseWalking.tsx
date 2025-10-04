@@ -123,10 +123,12 @@ export default function JapaneseWalking() {
           title="About Japanese Walking"
           description="Japanese Interval Walking Training (IWT) alternates between 3 minutes of brisk and leisurely walking for 30 minutes total to improve cardiovascular health, metabolism, posture, and overall fitness."
           howToPerform={[
+            "Warm up for 3 minutes at a leisurely pace",
             "Brisk intervals: 70-85% max heart rate - challenging but can still speak",
             "Leisurely intervals: slower pace to allow heart rate recovery",
+            "Alternate brisk and leisurely intervals 5 times (30 minutes)",
+            "Cool down for final 3 minutes at leisurely pace",
             "Maintain good posture with back straight and body aligned",
-            "Use walking time for mindfulness and connecting with surroundings",
           ]}
           benefits={["Improved cardiovascular health", "Enhanced metabolism", "Better posture", "Mental health benefits"]}
           frequency="3-4 times per week"

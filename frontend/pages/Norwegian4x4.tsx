@@ -120,10 +120,12 @@ export default function Norwegian4x4() {
           title="About Norwegian 4×4"
           description="Gold standard interval protocol with four 4-minute high-intensity intervals at 85-95% max heart rate, separated by 3-minute recoveries. Highly effective for improving VO₂ max, cardiovascular health, and metabolic factors."
           howToPerform={[
+            "Warm up for 10 minutes at light intensity with dynamic stretches",
             "High intensity: 85-95% max heart rate - speaking full sentences is difficult",
             "Recovery: 60-70% max heart rate - light activity like brisk walking or light pedaling",
+            "Perform 4 high-intensity intervals, each followed by a 3-minute recovery",
+            "Cool down for 5 minutes to gradually lower heart rate",
             "Can be performed running, cycling, rowing, or on cardio equipment",
-            "Heart rate responds faster as you become fitter",
           ]}
           benefits={["Significant VO₂ max improvement", "Enhanced cardiovascular fitness", "Improved heart function", "Better metabolic health"]}
           frequency="2-3 times per week with at least one rest day between sessions"
