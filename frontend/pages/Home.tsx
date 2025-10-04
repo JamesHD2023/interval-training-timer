@@ -23,7 +23,7 @@ export default function Home() {
               <Timer className="w-12 h-12" />
               <div className="flex-1">
                 <h2 className="text-2xl font-bold">Japanese Walking</h2>
-                <p className="text-blue-100 text-sm">5 × 3min intervals • 32 min total</p>
+                <p className="text-blue-100 text-sm">10 × 3min intervals • 30 min total</p>
               </div>
             </div>
           </Card>
