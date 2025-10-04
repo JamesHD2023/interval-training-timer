@@ -55,18 +55,16 @@ export default function JapaneseWalking() {
   );
 
   useEffect(() => {
-    if (isRunning) {
-      setTimeout(() => {
-        speak(currentInterval.message);
-        sendNotification(currentInterval.name, currentInterval.message);
-        if (currentInterval.name === "Fast Pace") {
-          playBeep();
-        } else if (currentInterval.name === "Recovery") {
-          playDoubleBeep();
-        }
-      }, 100);
+    if (isRunning && timeLeft === currentInterval.duration) {
+      speak(currentInterval.message);
+      sendNotification(currentInterval.name, currentInterval.message);
+      if (currentInterval.name === "Fast Pace") {
+        playBeep();
+      } else if (currentInterval.name === "Recovery") {
+        playDoubleBeep();
+      }
     }
-  }, [currentIntervalIndex, isRunning, speak, sendNotification, playBeep, playDoubleBeep, currentInterval.name, currentInterval.message]);
+  }, [currentIntervalIndex, isRunning, timeLeft, currentInterval, sendNotification]);
 
   useEffect(() => {
     if (isRunning) {
