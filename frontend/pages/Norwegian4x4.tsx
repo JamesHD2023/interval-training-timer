@@ -118,17 +118,28 @@ export default function Norwegian4x4() {
 
         <InfoPanel
           title="About Norwegian 4×4"
-          description="Gold standard interval protocol with four 4-minute high-intensity intervals at 85-95% max heart rate, separated by 3-minute recoveries. Highly effective for improving VO₂ max, cardiovascular health, and metabolic factors."
+          description="The Norwegian 4x4 is a high-intensity interval training (HIIT) method involving four, four-minute high-intensity intervals at 85-95% of your maximum heart rate, each followed by three minutes of low-intensity active recovery, after an initial warm-up and before a cool-down. This protocol is designed to significantly improve VO₂ max, a key indicator of cardiovascular health and longevity."
           howToPerform={[
-            "Warm up for 10 minutes at light intensity with dynamic stretches",
-            "High intensity: 85-95% max heart rate - speaking full sentences is difficult",
-            "Recovery: 60-70% max heart rate - light activity like brisk walking or light pedaling",
-            "Perform 4 high-intensity intervals, each followed by a 3-minute recovery",
-            "Cool down for 5 minutes to gradually lower heart rate",
-            "Can be performed running, cycling, rowing, or on cardio equipment",
+            "Warm-up (10 minutes): Start with a low-intensity warm-up, such as light jogging or dynamic stretches, to prepare your body for the workout",
+            "High-Intensity Interval (4 minutes): For each of the four intervals, perform a cardio exercise of your choice (running, cycling, swimming, etc.) at 85-95% of your maximum heart rate. The goal is to reach and sustain this high intensity",
+            "Active Recovery (3 minutes): After each 4-minute interval, engage in light activity, like brisk walking or light pedaling, to bring your heart rate down to 60-70% of your max",
+            "Repeat Intervals: Complete the 4-minute high-intensity interval and 3-minute active recovery phase for a total of four times",
+            "Cool-down: After the final interval and recovery period, perform a cool-down to slowly bring your heart rate down further and include gentle stretching",
           ]}
-          benefits={["Significant VO₂ max improvement", "Enhanced cardiovascular fitness", "Improved heart function", "Better metabolic health"]}
-          frequency="2-3 times per week with at least one rest day between sessions"
+          tips={[
+            "Cardio Exercise Choice: The 4x4 workout can be adapted to various cardio exercises, including running, swimming, cycling, and rowing",
+            "Heart Rate Zones: It's crucial to monitor your heart rate to ensure you are in the correct intensity zones for both the high-intensity and recovery periods",
+            "Research-Backed: The Norwegian 4x4 method was popularized by researchers at the Norwegian University of Science and Technology and has been shown to be highly effective for improving VO₂ max",
+            "Consistency: Performing the Norwegian 4x4 protocol once a week can lead to significant fitness improvements, according to one study",
+            "Listen to Your Body: Pay attention to your body's signals and adjust the intensity or duration as needed, especially if you are new to high-intensity training",
+          ]}
+          benefits={[
+            "Significant VO₂ max improvement",
+            "Enhanced cardiovascular fitness",
+            "Improved heart function",
+            "Better metabolic health",
+          ]}
+          frequency="Once a week for significant improvements, or 2-3 times per week with at least one rest day between sessions"
         />
 
         <TimerDisplay
