@@ -92,6 +92,7 @@ export default function CustomTimer() {
       if (currentIntervalIndex < timerIntervals.length - 1) {
         setCurrentIntervalIndex((prev) => prev + 1);
       } else {
+        pause();
         handleComplete();
       }
     }
@@ -103,7 +104,7 @@ export default function CustomTimer() {
       sendNotification(currentInterval.name, currentInterval.message);
       playBeep();
     }
-  }, [currentIntervalIndex, isRunning, timeLeft, currentInterval, sendNotification, playBeep]);
+  }, [currentIntervalIndex, isRunning, timeLeft, currentInterval, sendNotification, playBeep, speak]);
 
   useEffect(() => {
     if (isRunning) {

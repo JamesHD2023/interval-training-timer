@@ -19,7 +19,6 @@ export function useTimer(initialTime: number, onComplete: () => void) {
       intervalRef.current = window.setInterval(() => {
         setTimeLeft((prev) => {
           if (prev <= 1) {
-            setIsRunning(false);
             onCompleteRef.current();
             return 0;
           }
