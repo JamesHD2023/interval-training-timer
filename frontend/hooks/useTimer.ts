@@ -15,7 +15,7 @@ export function useTimer(initialTime: number, onComplete: () => void) {
   }, [initialTime]);
 
   useEffect(() => {
-    if (isRunning && timeLeft > 0) {
+    if (isRunning) {
       intervalRef.current = window.setInterval(() => {
         setTimeLeft((prev) => {
           if (prev <= 1) {
@@ -36,7 +36,7 @@ export function useTimer(initialTime: number, onComplete: () => void) {
         intervalRef.current = null;
       }
     };
-  }, [isRunning, timeLeft]);
+  }, [isRunning]);
 
   const start = useCallback(() => setIsRunning(true), []);
   const pause = useCallback(() => setIsRunning(false), []);
