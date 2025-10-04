@@ -19,13 +19,13 @@ interface Interval {
 const intervals: Interval[] = [
   { name: "Warm-up", duration: 180, message: "Begin warm-up walk" },
   { name: "Fast Pace", duration: 180, message: "Fast pace - go!" },
-  { name: "Recovery", duration: 90, message: "Recovery pace" },
+  { name: "Recovery", duration: 180, message: "Recovery pace" },
   { name: "Fast Pace", duration: 180, message: "Fast pace - go!" },
-  { name: "Recovery", duration: 90, message: "Recovery pace" },
+  { name: "Recovery", duration: 180, message: "Recovery pace" },
   { name: "Fast Pace", duration: 180, message: "Fast pace - go!" },
-  { name: "Recovery", duration: 90, message: "Recovery pace" },
+  { name: "Recovery", duration: 180, message: "Recovery pace" },
   { name: "Fast Pace", duration: 180, message: "Fast pace - go!" },
-  { name: "Recovery", duration: 90, message: "Recovery pace" },
+  { name: "Recovery", duration: 180, message: "Recovery pace" },
   { name: "Fast Pace", duration: 180, message: "Fast pace - go!" },
   { name: "Cool-down", duration: 180, message: "Final cool-down" },
 ];

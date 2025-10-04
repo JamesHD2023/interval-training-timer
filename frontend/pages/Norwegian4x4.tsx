@@ -19,11 +19,11 @@ interface Interval {
 const intervals: Interval[] = [
   { name: "Warm-up", duration: 240, message: "Warm-up - moderate pace" },
   { name: "High Intensity", duration: 240, message: "High intensity - push hard!" },
-  { name: "Active Recovery", duration: 180, message: "Active recovery" },
+  { name: "Active Recovery", duration: 240, message: "Active recovery" },
   { name: "High Intensity", duration: 240, message: "High intensity - push hard!" },
-  { name: "Active Recovery", duration: 180, message: "Active recovery" },
+  { name: "Active Recovery", duration: 240, message: "Active recovery" },
   { name: "High Intensity", duration: 240, message: "High intensity - push hard!" },
-  { name: "Active Recovery", duration: 180, message: "Active recovery" },
+  { name: "Active Recovery", duration: 240, message: "Active recovery" },
   { name: "High Intensity", duration: 240, message: "High intensity - push hard!" },
   { name: "Cool-down", duration: 240, message: "Cool-down begins" },
 ];
