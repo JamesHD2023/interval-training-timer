@@ -5,16 +5,16 @@ export function useTimer(initialTime: number, onComplete: () => void) {
   const [isRunning, setIsRunning] = useState(false);
   const intervalRef = useRef<number | null>(null);
   const onCompleteRef = useRef(onComplete);
+  const initialTimeRef = useRef(initialTime);
 
   useEffect(() => {
     onCompleteRef.current = onComplete;
   }, [onComplete]);
 
   useEffect(() => {
-    setTimeLeft(initialTime);
-    if (intervalRef.current !== null) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
+    if (initialTime !== initialTimeRef.current) {
+      initialTimeRef.current = initialTime;
+      setTimeLeft(initialTime);
     }
   }, [initialTime]);
 
@@ -40,7 +40,7 @@ export function useTimer(initialTime: number, onComplete: () => void) {
         intervalRef.current = null;
       }
     };
-  }, [isRunning]);
+  }, [isRunning, initialTime]);
 
   const start = useCallback(() => setIsRunning(true), []);
   const pause = useCallback(() => setIsRunning(false), []);
