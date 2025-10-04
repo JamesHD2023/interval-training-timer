@@ -9,9 +9,10 @@ interface InfoPanelProps {
   howToPerform: string[];
   benefits: string[];
   frequency: string;
+  tips?: string[];
 }
 
-export default function InfoPanel({ title, description, howToPerform, benefits, frequency }: InfoPanelProps) {
+export default function InfoPanel({ title, description, howToPerform, benefits, frequency, tips }: InfoPanelProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -37,6 +38,17 @@ export default function InfoPanel({ title, description, howToPerform, benefits, 
               ))}
             </ul>
           </div>
+
+          {tips && tips.length > 0 && (
+            <div>
+              <h3 className="font-semibold mb-2 text-foreground">Tips for Success:</h3>
+              <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                {tips.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div>
             <h3 className="font-semibold mb-2 text-foreground">Benefits:</h3>

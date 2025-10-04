@@ -121,17 +121,28 @@ export default function JapaneseWalking() {
 
         <InfoPanel
           title="About Japanese Walking"
-          description="Japanese Interval Walking Training (IWT) alternates between 3 minutes of brisk and leisurely walking for 30 minutes total to improve cardiovascular health, metabolism, posture, and overall fitness."
+          description="The Japanese walking technique, or interval walking training (IWT), involves alternating between 3 minutes of fast-paced walking and 3 minutes of slow-paced walking for a total of about 30 minutes, plus warm-up. This method improves aerobic capacity, leg strength, and endurance by challenging your body with varying intensities, promoting beneficial health adaptations."
           howToPerform={[
-            "Warm up for 3 minutes at a leisurely pace",
-            "Brisk intervals: 70-85% max heart rate - challenging but can still speak",
-            "Leisurely intervals: slower pace to allow heart rate recovery",
-            "Alternate brisk and leisurely intervals 5 times (30 minutes)",
-            "Cool down for final 3 minutes at leisurely pace",
-            "Maintain good posture with back straight and body aligned",
+            "Warm-up: Start with about five minutes of slow, easy walking to prepare your body",
+            "Fast-paced interval: Walk at a brisk pace, around 70-85% of your maximum heart rate, for three minutes. You should be able to talk, but it should be a challenge",
+            "Slow-paced interval: Return to a leisurely pace for three minutes, allowing your heart rate to recover to 40-50% of your maximum heart rate",
+            "Repeat: Continue alternating between the fast and slow intervals for a total of about 30 minutes",
+            "Cool-down: End with a few minutes of slow walking",
           ]}
-          benefits={["Improved cardiovascular health", "Enhanced metabolism", "Better posture", "Mental health benefits"]}
-          frequency="3-4 times per week"
+          tips={[
+            "Maintain good posture: Stand tall, keep your shoulders loose, and let your arms swing naturally",
+            "Listen to your body: Pay attention to any pain or extreme breathlessness",
+            "Find a comfortable pace: Fast doesn't mean sprinting; it means a pace that feels challenging but sustainable",
+            "Stay consistent: Aim to walk three to five days a week",
+            "Use technology: A fitness tracker can help you monitor your intensity and track your progress",
+          ]}
+          benefits={[
+            "Improved cardiovascular health: It boosts your aerobic capacity (VO₂ max)",
+            "Increased strength and endurance: Your leg muscles become stronger and more resilient",
+            "Enhanced mental well-being: The method can improve mindfulness and promote a sense of calm",
+            "Time-efficient: It offers significant benefits in a shorter amount of time compared to a standard walk",
+          ]}
+          frequency="3-5 times per week"
         />
 
         <TimerDisplay
