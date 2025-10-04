@@ -101,13 +101,9 @@ export default function CustomTimer() {
     if (isRunning && currentInterval && timeLeft === currentInterval.duration) {
       speak(currentInterval.message);
       sendNotification(currentInterval.name, currentInterval.message);
-      if (currentInterval.name === "Work") {
-        playBeep();
-      } else if (currentInterval.name === "Rest") {
-        playDoubleBeep();
-      }
+      playBeep();
     }
-  }, [currentIntervalIndex, isRunning, timeLeft, currentInterval, sendNotification]);
+  }, [currentIntervalIndex, isRunning, timeLeft, currentInterval, sendNotification, playBeep]);
 
   useEffect(() => {
     if (isRunning) {
