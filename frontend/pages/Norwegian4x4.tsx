@@ -53,7 +53,7 @@ export default function Norwegian4x4() {
   );
 
   useEffect(() => {
-    if (isRunning && timeLeft === currentInterval.duration) {
+    if (isRunning) {
       speak(currentInterval.message);
       sendNotification(currentInterval.name, currentInterval.message);
       if (currentInterval.name === "High Intensity") {
@@ -62,7 +62,7 @@ export default function Norwegian4x4() {
         playDoubleBeep();
       }
     }
-  }, [currentIntervalIndex, isRunning, timeLeft, sendNotification]);
+  }, [currentIntervalIndex, isRunning]);
 
   useEffect(() => {
     if (isRunning) {
