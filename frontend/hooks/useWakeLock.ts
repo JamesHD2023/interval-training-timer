@@ -6,7 +6,6 @@ export function useWakeLock() {
 
   const requestWakeLock = useCallback(async () => {
     if (!("wakeLock" in navigator)) {
-      console.warn("Wake Lock API not supported");
       return;
     }
 
@@ -20,26 +19,22 @@ export function useWakeLock() {
       }
 
       wakeLockRef.current = await navigator.wakeLock.request("screen");
-      console.log("Wake Lock acquired");
 
       wakeLockRef.current.addEventListener("release", () => {
-        console.log("Wake Lock released");
         wakeLockRef.current = null;
         if (isActiveRef.current && document.visibilityState === "visible") {
           setTimeout(() => requestWakeLock(), 100);
         }
       });
     } catch (err) {
-      console.error("Failed to request wake lock:", err);
+      wakeLockRef.current = null;
     }
   }, []);
 
   const releaseWakeLock = useCallback(() => {
     isActiveRef.current = false;
     if (wakeLockRef.current) {
-      wakeLockRef.current.release().catch((err) => {
-        console.error("Failed to release wake lock:", err);
-      });
+      wakeLockRef.current.release().catch(() => {});
       wakeLockRef.current = null;
     }
   }, []);
