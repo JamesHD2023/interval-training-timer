@@ -99,6 +99,13 @@ export default function CustomTimer() {
   );
 
   useEffect(() => {
+    if (currentIntervalIndex > 0 && isRunning) {
+      reset();
+      start();
+    }
+  }, [currentIntervalIndex]);
+
+  useEffect(() => {
     if (isRunning && currentInterval && timeLeft === currentInterval.duration) {
       speak(currentInterval.message);
       sendNotification(currentInterval.name, currentInterval.message);

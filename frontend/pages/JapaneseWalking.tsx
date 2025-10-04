@@ -56,6 +56,13 @@ export default function JapaneseWalking() {
   );
 
   useEffect(() => {
+    if (currentIntervalIndex > 0 && isRunning) {
+      reset();
+      start();
+    }
+  }, [currentIntervalIndex]);
+
+  useEffect(() => {
     if (isRunning && timeLeft === currentInterval.duration) {
       speak(currentInterval.message);
       sendNotification(currentInterval.name, currentInterval.message);
