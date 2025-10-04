@@ -18,9 +18,13 @@ export function useNotifications() {
         icon: "/icon-192.png",
         badge: "/icon-192.png",
         tag: "pacee-pro-timer",
-        requireInteraction: true,
+        requireInteraction: false,
         silent: false,
       });
+
+      setTimeout(() => {
+        notification.close();
+      }, 3000);
 
       notification.onclick = () => {
         window.focus();
