@@ -7,6 +7,7 @@ import InfoPanel from "@/components/InfoPanel";
 import { useTimer } from "@/hooks/useTimer";
 import { useAudio } from "@/hooks/useAudio";
 import { useWakeLock } from "@/hooks/useWakeLock";
+import { useNotifications } from "@/hooks/useNotifications";
 import backend from "~backend/client";
 
 interface Interval {
@@ -33,6 +34,7 @@ export default function JapaneseWalking() {
   const navigate = useNavigate();
   const { playBeep, playDoubleBeep, playCompletionSound, speak } = useAudio();
   const { requestWakeLock, releaseWakeLock } = useWakeLock();
+  const { sendNotification } = useNotifications();
   const [currentIntervalIndex, setCurrentIntervalIndex] = useState(0);
 
   const currentInterval = intervals[currentIntervalIndex];
@@ -55,13 +57,14 @@ export default function JapaneseWalking() {
   useEffect(() => {
     if (isRunning && timeLeft === currentInterval.duration) {
       speak(currentInterval.message);
+      sendNotification(currentInterval.name, currentInterval.message);
       if (currentInterval.name === "Fast Pace") {
         playBeep();
       } else if (currentInterval.name === "Recovery") {
         playDoubleBeep();
       }
     }
-  }, [currentIntervalIndex, isRunning, timeLeft]);
+  }, [currentIntervalIndex, isRunning, timeLeft, sendNotification]);
 
   useEffect(() => {
     if (isRunning) {
@@ -76,6 +79,7 @@ export default function JapaneseWalking() {
     releaseWakeLock();
     playCompletionSound();
     speak("Workout complete! Great job!");
+    sendNotification("Workout Complete!", "Great job on finishing your Japanese Walking session!");
     try {
       await backend.timer.createSession({
         timerType: "Japanese Walking",

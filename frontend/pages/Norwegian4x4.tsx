@@ -7,6 +7,7 @@ import InfoPanel from "@/components/InfoPanel";
 import { useTimer } from "@/hooks/useTimer";
 import { useAudio } from "@/hooks/useAudio";
 import { useWakeLock } from "@/hooks/useWakeLock";
+import { useNotifications } from "@/hooks/useNotifications";
 import backend from "~backend/client";
 
 interface Interval {
@@ -31,6 +32,7 @@ export default function Norwegian4x4() {
   const navigate = useNavigate();
   const { playBeep, playDoubleBeep, playCompletionSound, speak } = useAudio();
   const { requestWakeLock, releaseWakeLock } = useWakeLock();
+  const { sendNotification } = useNotifications();
   const [currentIntervalIndex, setCurrentIntervalIndex] = useState(0);
 
   const currentInterval = intervals[currentIntervalIndex];
@@ -53,13 +55,14 @@ export default function Norwegian4x4() {
   useEffect(() => {
     if (isRunning && timeLeft === currentInterval.duration) {
       speak(currentInterval.message);
+      sendNotification(currentInterval.name, currentInterval.message);
       if (currentInterval.name === "High Intensity") {
         playBeep();
       } else if (currentInterval.name === "Active Recovery") {
         playDoubleBeep();
       }
     }
-  }, [currentIntervalIndex, isRunning, timeLeft]);
+  }, [currentIntervalIndex, isRunning, timeLeft, sendNotification]);
 
   useEffect(() => {
     if (isRunning) {
@@ -74,6 +77,7 @@ export default function Norwegian4x4() {
     releaseWakeLock();
     playCompletionSound();
     speak("Workout complete! Excellent effort!");
+    sendNotification("Workout Complete!", "Excellent effort on finishing your Norwegian 4×4 session!");
     try {
       await backend.timer.createSession({
         timerType: "Norwegian 4×4",

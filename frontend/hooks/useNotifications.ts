@@ -1,0 +1,33 @@
+import { useEffect, useCallback } from "react";
+
+export function useNotifications() {
+  useEffect(() => {
+    if ("Notification" in window && Notification.permission === "default") {
+      Notification.requestPermission();
+    }
+  }, []);
+
+  const sendNotification = useCallback((title: string, body: string, vibrate = true) => {
+    if (vibrate && "vibrate" in navigator) {
+      navigator.vibrate([200, 100, 200]);
+    }
+
+    if ("Notification" in window && Notification.permission === "granted") {
+      const notification = new Notification(title, {
+        body,
+        icon: "/icon-192.png",
+        badge: "/icon-192.png",
+        tag: "interval-timer",
+        requireInteraction: true,
+        silent: false,
+      });
+
+      notification.onclick = () => {
+        window.focus();
+        notification.close();
+      };
+    }
+  }, []);
+
+  return { sendNotification };
+}

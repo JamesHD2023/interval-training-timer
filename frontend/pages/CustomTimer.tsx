@@ -11,6 +11,7 @@ import PresetManager from "@/components/PresetManager";
 import { useTimer } from "@/hooks/useTimer";
 import { useAudio } from "@/hooks/useAudio";
 import { useWakeLock } from "@/hooks/useWakeLock";
+import { useNotifications } from "@/hooks/useNotifications";
 import backend from "~backend/client";
 
 interface CustomInterval {
@@ -23,6 +24,7 @@ export default function CustomTimer() {
   const navigate = useNavigate();
   const { playBeep, playDoubleBeep, playCompletionSound, speak } = useAudio();
   const { requestWakeLock, releaseWakeLock } = useWakeLock();
+  const { sendNotification } = useNotifications();
 
   const [showConfig, setShowConfig] = useState(true);
   const [intervals, setIntervals] = useState(3);
@@ -98,13 +100,14 @@ export default function CustomTimer() {
   useEffect(() => {
     if (isRunning && currentInterval && timeLeft === currentInterval.duration) {
       speak(currentInterval.message);
+      sendNotification(currentInterval.name, currentInterval.message);
       if (currentInterval.name === "Work") {
         playBeep();
       } else if (currentInterval.name === "Rest") {
         playDoubleBeep();
       }
     }
-  }, [currentIntervalIndex, isRunning, timeLeft, currentInterval]);
+  }, [currentIntervalIndex, isRunning, timeLeft, currentInterval, sendNotification]);
 
   useEffect(() => {
     if (isRunning) {
@@ -119,6 +122,7 @@ export default function CustomTimer() {
     releaseWakeLock();
     playCompletionSound();
     speak("Workout complete! You did it!");
+    sendNotification("Workout Complete!", "You did it! Great job on finishing your custom interval session!");
     try {
       await backend.timer.createSession({
         timerType: "Custom",
