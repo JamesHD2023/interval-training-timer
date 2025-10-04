@@ -181,12 +181,19 @@ export default function CustomTimer() {
 
           <InfoPanel
             title="HIIT Guidelines"
-            description="Create your personalized interval training session"
+            description="A HIIT workout involves short bursts of intense, maximum-effort exercise followed by brief recovery periods, repeated for a set duration, typically lasting 20-45 minutes including warm-up and cool-down."
             howToPerform={[
-              "Common work:rest ratios: 1:1 (equal), 1:2 (beginner), 2:1 (advanced)",
-              "Start with fewer intervals and build up gradually",
-              "Always include a proper warm-up and cool-down",
-              "Listen to your body and adjust intensity as needed",
+              "Warm-Up (5 minutes): Light cardio, such as jogging on the spot, star jumps, or dynamic stretches, to prepare your muscles.",
+              "High-Intensity Interval (HII): Alternate between periods of intense exercise and periods of recovery or lower-intensity activity.",
+              "Work Interval: Perform an exercise at maximum effort (9 out of 10 on a perceived exertion scale), getting your heart rate up significantly.",
+              "Rest/Recovery Interval: Rest, do light walking, or perform another low-intensity exercise to recover.",
+              "Repeat Cycles: Repeat the work and recovery intervals several times.",
+              "Cool-Down (5 minutes): Gentle movement, like a light jog on the spot, and static stretching to help your heart rate return to normal and improve flexibility.",
+              "Example HIIT Workout for Beginners: Warm-up (5 minutes of light jogging on the spot). Workout (10 minutes): 30 seconds Bodyweight Squats, 30 seconds Rest, 30 seconds Burpees, 30 seconds Rest, 30 seconds Mountain Climbers, 30 seconds Rest, 30 seconds High Knees, 30 seconds Rest, 30 seconds Push Ups, 30 seconds Rest. Cool-down (5 minutes of gentle stretching).",
+              "Listen to Your Body: If an exercise doesn't feel right, modify it or take a longer rest. Proper form is more important than pushing through pain.",
+              "Adjust for Your Fitness Level: Start with shorter work intervals and longer rests, and gradually increase the work time or decrease the rest as you improve.",
+              "Use a Timer: A workout timer or app can be very helpful for signaling your work and rest periods.",
+              "Vary Your Exercises: You can use bodyweight exercises, cardio equipment like treadmills or bikes, or even weights to increase the intensity.",
             ]}
             benefits={["Customizable to your fitness level", "Flexible duration", "Adaptable to any exercise"]}
             frequency="Based on your training program"
