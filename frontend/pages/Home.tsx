@@ -10,8 +10,8 @@ export default function Home() {
       <div className="w-full max-w-md space-y-8">
         <div className="text-center space-y-2">
           <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Pacee.Pro</h1>
-          <p className="text-lg text-muted-foreground italic">Precision timing for every workout</p>
-          <p className="text-sm text-muted-foreground mt-4">Choose your training mode</p>
+          <p className="text-lg text-gray-600 italic">Precision timing for every workout</p>
+          <p className="text-sm text-gray-600 mt-4">Choose your training mode</p>
         </div>
 
         <div className="space-y-4">
@@ -55,8 +55,8 @@ export default function Home() {
           </Card>
         </div>
 
-        <footer className="text-center text-sm text-muted-foreground pb-4">
-          App Created by <a href="https://jamesharvey.blog/" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">James Harvey Media</a>
+        <footer className="text-center text-sm text-gray-600 pb-4">
+          App Created by <a href="https://jamesharvey.blog/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-900">James Harvey Media</a>
         </footer>
       </div>
     </div>
