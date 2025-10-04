@@ -36,7 +36,7 @@ export default function Home() {
               <Zap className="w-12 h-12" />
               <div className="flex-1">
                 <h2 className="text-2xl font-bold">Norwegian 4×4</h2>
-                <p className="text-orange-100 text-sm">4 × 4min intervals • 43 min total</p>
+                <p className="text-orange-100 text-sm">8 × 4min intervals • 32 min total</p>
               </div>
             </div>
           </Card>
