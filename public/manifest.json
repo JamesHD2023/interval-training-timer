@@ -1,7 +1,7 @@
 {
-  "name": "Interval Training Timer",
-  "short_name": "Interval Timer",
-  "description": "Mobile-optimized interval training timer with preset workout modes",
+  "name": "Pacee.Pro - Precision timing for every workout",
+  "short_name": "Pacee.Pro",
+  "description": "Precision timing for every workout - Mobile-optimized interval training timer",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

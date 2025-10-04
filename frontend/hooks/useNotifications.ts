@@ -13,11 +13,11 @@ export function useNotifications() {
     }
 
     if ("Notification" in window && Notification.permission === "granted") {
-      const notification = new Notification(title, {
+      const notification = new Notification(`Pacee.Pro - ${title}`, {
         body,
         icon: "/icon-192.png",
         badge: "/icon-192.png",
-        tag: "interval-timer",
+        tag: "pacee-pro-timer",
         requireInteraction: true,
         silent: false,
       });

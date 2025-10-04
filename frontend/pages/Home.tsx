@@ -9,8 +9,9 @@ export default function Home() {
     <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-b from-blue-50 to-white">
       <div className="w-full max-w-md space-y-8">
         <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold text-foreground">Interval Timer</h1>
-          <p className="text-muted-foreground">Choose your training mode</p>
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Pacee.Pro</h1>
+          <p className="text-lg text-muted-foreground italic">Precision timing for every workout</p>
+          <p className="text-sm text-muted-foreground mt-4">Choose your training mode</p>
         </div>
 
         <div className="space-y-4">

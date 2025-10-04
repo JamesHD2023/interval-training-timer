@@ -99,12 +99,17 @@ export default function Norwegian4x4() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white p-4">
       <div className="max-w-md mx-auto space-y-6">
-        <div className="flex items-center justify-between">
-          <Button variant="ghost" size="icon" onClick={() => navigate("/")}>
-            <ArrowLeft className="w-6 h-6" />
-          </Button>
-          <h1 className="text-2xl font-bold text-foreground">Norwegian 4×4</h1>
-          <div className="w-10" />
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <Button variant="ghost" size="icon" onClick={() => navigate("/")}>
+              <ArrowLeft className="w-6 h-6" />
+            </Button>
+            <div className="text-center">
+              <div className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Pacee.Pro</div>
+            </div>
+            <div className="w-10" />
+          </div>
+          <h1 className="text-2xl font-bold text-foreground text-center">Norwegian 4×4</h1>
         </div>
 
         <InfoPanel
