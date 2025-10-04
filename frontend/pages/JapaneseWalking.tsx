@@ -17,7 +17,7 @@ interface Interval {
 }
 
 const intervals: Interval[] = [
-  { name: "Warm-up", duration: 300, message: "Begin warm-up walk" },
+  { name: "Warm-up", duration: 180, message: "Begin warm-up walk" },
   { name: "Fast Pace", duration: 180, message: "Fast pace - go!" },
   { name: "Recovery", duration: 90, message: "Recovery pace" },
   { name: "Fast Pace", duration: 180, message: "Fast pace - go!" },
@@ -27,7 +27,7 @@ const intervals: Interval[] = [
   { name: "Fast Pace", duration: 180, message: "Fast pace - go!" },
   { name: "Recovery", duration: 90, message: "Recovery pace" },
   { name: "Fast Pace", duration: 180, message: "Fast pace - go!" },
-  { name: "Cool-down", duration: 300, message: "Final cool-down" },
+  { name: "Cool-down", duration: 180, message: "Final cool-down" },
 ];
 
 export default function JapaneseWalking() {

@@ -17,7 +17,7 @@ interface Interval {
 }
 
 const intervals: Interval[] = [
-  { name: "Warm-up", duration: 600, message: "Warm-up - moderate pace" },
+  { name: "Warm-up", duration: 240, message: "Warm-up - moderate pace" },
   { name: "High Intensity", duration: 240, message: "High intensity - push hard!" },
   { name: "Active Recovery", duration: 180, message: "Active recovery" },
   { name: "High Intensity", duration: 240, message: "High intensity - push hard!" },
@@ -25,7 +25,7 @@ const intervals: Interval[] = [
   { name: "High Intensity", duration: 240, message: "High intensity - push hard!" },
   { name: "Active Recovery", duration: 180, message: "Active recovery" },
   { name: "High Intensity", duration: 240, message: "High intensity - push hard!" },
-  { name: "Cool-down", duration: 300, message: "Cool-down begins" },
+  { name: "Cool-down", duration: 240, message: "Cool-down begins" },
 ];
 
 export default function Norwegian4x4() {
