@@ -54,6 +54,10 @@ export default function Home() {
             </div>
           </Card>
         </div>
+
+        <footer className="text-center text-sm text-muted-foreground pb-4">
+          App Created by <a href="https://jamesharvey.blog/" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">James Harvey Media</a>
+        </footer>
       </div>
     </div>
   );
