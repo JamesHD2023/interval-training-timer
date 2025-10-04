@@ -5,13 +5,8 @@ import Home from "./pages/Home";
 import JapaneseWalking from "./pages/JapaneseWalking";
 import Norwegian4x4 from "./pages/Norwegian4x4";
 import CustomTimer from "./pages/CustomTimer";
-import { registerServiceWorker } from "./registerServiceWorker";
 
 export default function App() {
-  useEffect(() => {
-    registerServiceWorker();
-  }, []);
-
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-white">
