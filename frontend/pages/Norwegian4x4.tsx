@@ -17,7 +17,7 @@ interface Interval {
 }
 
 const intervals: Interval[] = [
-  { name: "Warm-up", duration: 600, message: "Warm-up - light intensity with dynamic stretches" },
+  { name: "Warm-up", duration: 240, message: "Warm-up - light intensity with dynamic stretches" },
   { name: "High Intensity 1", duration: 240, message: "High intensity - 85 to 95% max heart rate" },
   { name: "Recovery 1", duration: 180, message: "Light recovery - 60 to 70% max heart rate" },
   { name: "High Intensity 2", duration: 240, message: "High intensity - 85 to 95% max heart rate" },
@@ -120,7 +120,7 @@ export default function Norwegian4x4() {
           title="About Norwegian 4×4"
           description="The Norwegian 4x4 is a high-intensity interval training (HIIT) method involving four, four-minute high-intensity intervals at 85-95% of your maximum heart rate, each followed by three minutes of low-intensity active recovery, after an initial warm-up and before a cool-down. This protocol is designed to significantly improve VO₂ max, a key indicator of cardiovascular health and longevity."
           howToPerform={[
-            "Warm-up (10 minutes): Start with a low-intensity warm-up, such as light jogging or dynamic stretches, to prepare your body for the workout",
+            "Warm-up (4 minutes): Start with a low-intensity warm-up, such as light jogging or dynamic stretches, to prepare your body for the workout",
             "High-Intensity Interval (4 minutes): For each of the four intervals, perform a cardio exercise of your choice (running, cycling, swimming, etc.) at 85-95% of your maximum heart rate. The goal is to reach and sustain this high intensity",
             "Active Recovery (3 minutes): After each 4-minute interval, engage in light activity, like brisk walking or light pedaling, to bring your heart rate down to 60-70% of your max",
             "Repeat Intervals: Complete the 4-minute high-intensity interval and 3-minute active recovery phase for a total of four times",
